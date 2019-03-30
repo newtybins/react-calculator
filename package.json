@@ -1,6 +1,7 @@
 {
   "name": "calculator-react",
   "version": "1.0.0",
+  "homepage": "https://jsmiith.github.io/calculator-react",
   "private": true,
   "dependencies": {
     "immutability-helper": "^3.0.0",
@@ -13,7 +14,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rimraf build",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,5 +28,8 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {}
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "rimraf": "^2.6.3"
+  }
 }
