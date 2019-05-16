@@ -1,7 +1,7 @@
 {
   "name": "calculator-react",
   "version": "1.0.0",
-  "homepage": "https://jsmiith.github.io/calculator-react",
+  "homepage": "https://calculator.jsmiith.xyz/",
   "private": true,
   "dependencies": {
     "immutability-helper": "^3.0.0",
