@@ -1,4 +1,4 @@
-.Button {
+.button {
   background: #ffffff;
   display: flex;
   box-sizing: border-box;
@@ -11,14 +11,14 @@
   min-width: 25%;
 }
 
-.Button[data-size='2'] {
+.button[data-size='2'] {
   height: 40%;
 }
 
-.Button[data-value='null'] {
+.button[data-value='null'] {
   pointer-events: none;
 }
 
-.Button:hover {
+.button:hover {
   cursor: pointer;
 }

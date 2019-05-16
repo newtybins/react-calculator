@@ -1,5 +1,42 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+/* General */
+* {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+}
+
+
+body {
+  background: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Poppins';
+}
+
+.App {
+  height: 400px;
+  width: 300px;
+  background: #ebebeb;
+  position: relative;
+}
+
+/* Social*/ 
+a {
+  text-decoration: none;
+  color: #303030;
+}
+
+.social {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 50px;
+}
+
+.fa:hover {
+  opacity: 0.7;
 }

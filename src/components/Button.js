@@ -1,19 +1,18 @@
+// imports
 import React, { Component } from 'react';
 import './Button.css';
 
-class Button extends Component {
+// Button class
+export default class Button extends Component {
   render() {
+    // destructuring
+    const { onClick, size, value, label } = this.props;
+
+    // jsx
     return (
-      <div
-        onClick={this.props.onClick}
-        className="Button"
-        data-size={this.props.size}
-        data-value={this.props.value}
-      >
-        {this.props.label}
+      <div onClick={onClick} className="button" data-size={size} data-value={value} >
+        {label}
       </div>
     );
   }
 }
-
-export default Button;

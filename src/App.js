@@ -1,45 +1,75 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
+
+// imports
 import React, { Component } from 'react';
 import update from 'immutability-helper';
 import math from 'mathjs';
 
-import './App.css';
-
+// components
 import Display from './components/Display';
 import Button from './components/Button';
 import Buttons from './components/Buttons';
 
-class App extends Component {
+// App class
+export default class App extends Component {
   constructor() {
     super();
-    this.state = { operations: [] };
+
+    // setup state
+    this.state = { 
+      operations: [] 
+    };
   }
 
+  // methods
   calculateOperations = () => {
-    let result = this.state.operations.join('');
+    // destructuring
+    const { operations } = this.state;
+
+    // get result
+    let result = operations.join('');
+
+    // if there is a result
     if (result) {
+      // evaluate the math and format it
       result = math.eval(result);
       result = math.format(result, { precision: 14 });
-      this.setState({
+
+      // update the state
+      return this.setState({
         operations: [result]
       });
     }
   };
 
   handleClick = e => {
+    // destructuring
+    const { operations } = this.state;
+
+    // get the value of the target
     const value = e.target.getAttribute('data-value');
+
     switch (value) {
+      // if the clear button was clicked
       case 'clear':
+        // update the state
         this.setState({
           operations: []
         });
         break;
+
+      // if the equal button was clicked
       case 'equal':
+        // calculate the sum
         this.calculateOperations();
         break;
+      
+      // for any other button
       default:
-        const newOperations = update(this.state.operations, {
-          $push: [value]
-        });
+        // add to the operations
+        const newOperations = update(operations, { $push: [value] });
+
+        // update the state
         this.setState({
           operations: newOperations
         });
@@ -48,8 +78,13 @@ class App extends Component {
   };
 
   onKeyPress = e => {
+    // destructuring
+    const { operations } = this.state;
+
+    // get the value
     const value = e.key;
 
+    // define data
     const allowed = [
       '1',
       '2',
@@ -75,6 +110,7 @@ class App extends Component {
       'Backspace'
     ];
 
+    // if the allowed includes the value
     if (allowed.includes(value)) {
       switch (value) {
         case 'Escape':
@@ -82,31 +118,42 @@ class App extends Component {
             operations: []
           });
           break;
+
         case 'C':
           this.setState({
             operations: []
           });
           break;
+
         case 'c':
           this.setState({
             operations: []
           });
           break;
+
+        // if the backspace key was pressed
         case 'Backspace':
-          const backSpaceOperations = this.state.operations;
-          backSpaceOperations.pop();
-          this.setState({
-            operations: backSpaceOperations
-          });
+          // remove the latest operation
+          operations.pop();
+
+          // update the state
+          this.setState({ operations });
           break;
+
         case '=':
+          this.calculateOperations();
+          break;
+
         case 'Enter':
           this.calculateOperations();
           break;
+
+        // if any other keys were pressed
         default:
-          const newOperations = update(this.state.operations, {
-            $push: [value]
-          });
+          // add the operation
+          const newOperations = update(operations, { $push: [value] });
+
+          // update the state
           this.setState({
             operations: newOperations
           });
@@ -115,127 +162,132 @@ class App extends Component {
     }
   };
 
-  componentWillMount = e => {
-    document.addEventListener('keydown', this.onKeyPress.bind(this));
-  };
+  componentWillMount = e => document.addEventListener('keydown', this.onKeyPress.bind(this));
 
   render() {
+    // destructuring
+    const { operations } = this.state;
+    const { handleClick, onKeyPress } = this;
+
+    // jsx
     return (
       <div className="App">
-        <Display data={this.state.operations} />
+        <Display data={operations} />
         <Buttons>
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="C"
             value="clear"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="7"
             value="7"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="4"
             value="4"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="1"
             value="1"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="0"
             value="0"
           />
 
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="/"
             value="/"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="8"
             value="8"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="5"
             value="5"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="2"
             value="2"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="."
             value="."
           />
 
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="x"
             value="*"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="9"
             value="9"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="6"
             value="6"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="3"
             value="3"
           />
           <Button label="" value="null" />
 
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="-"
             value="-"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="+"
             size="2"
             value="+"
           />
           <Button
-            onClick={this.handleClick}
-            onKeyPress={this.onKeyPress}
+            onClick={handleClick}
+            onKeyPress={onKeyPress}
             label="="
             size="2"
             value="equal"
           />
         </Buttons>
+
+        <div class="social">
+          <a href="https://github.com/jsmiith/calculator" className="fa fa-github"></a>
+        </div>
       </div>
     );
   }
 }
-
-export default App;

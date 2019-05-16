@@ -1,10 +1,21 @@
+// imports
 import React, { Component } from 'react';
-import './Buttons.css';
 
-class Buttons extends Component {
+// Buttons class
+export default class Buttons extends Component {
   render() {
-    return <div className="Buttons"> {this.props.children} </div>;
+    // destructuring
+    const { children: content } = this.props; 
+
+    // style
+    const style = {
+      display: 'flex',
+      flexWrap: 'wrap',
+      flexDirection: 'column',
+      height: '80%'
+    };
+
+    // jsx
+    return <div style={style}>{content}</div>;
   }
 }
-
-export default Buttons;
