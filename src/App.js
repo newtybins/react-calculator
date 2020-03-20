@@ -16,8 +16,8 @@ export default class App extends Component {
     super();
 
     // setup state
-    this.state = { 
-      operations: [] 
+    this.state = {
+      operations: []
     };
   }
 
@@ -63,7 +63,7 @@ export default class App extends Component {
         // calculate the sum
         this.calculateOperations();
         break;
-      
+
       // for any other button
       default:
         // add to the operations
@@ -285,7 +285,7 @@ export default class App extends Component {
         </Buttons>
 
         <div class="social">
-          <a href="https://github.com/jsmiith/calculator" className="fa fa-github"></a>
+          <a href="https://github.com/itsnewt/calculator" className="fa fa-github"></a>
         </div>
       </div>
     );

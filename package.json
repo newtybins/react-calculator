@@ -1,7 +1,7 @@
 {
   "name": "calculator-react",
   "version": "1.0.0",
-  "homepage": "https://calculator.jsmiith.xyz/",
+  "homepage": "https://calculator.newtt.pw/",
   "private": true,
   "dependencies": {
     "immutability-helper": "^3.0.1",

@@ -1,3 +1,5 @@
+<img src="calculator.jpg">
+
 # calculator-react
 
 A simple calculator made with React.
