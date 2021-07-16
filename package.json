@@ -1,7 +1,7 @@
 {
 	"name": "calculator-react",
 	"version": "1.0.0",
-	"homepage": "https://calculator.newtt.pw/",
+	"homepage": "https://calculator.newtt.me/",
 	"private": true,
 	"dependencies": {
 		"immutability-helper": "^3.1.1",
