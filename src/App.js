@@ -3,7 +3,7 @@
 // imports
 import React, { Component } from 'react';
 import update from 'immutability-helper';
-import math from 'mathjs';
+import * as math from 'mathjs';
 
 // components
 import Display from './components/Display';
@@ -32,7 +32,7 @@ export default class App extends Component {
     // if there is a result
     if (result) {
       // evaluate the math and format it
-      result = math.eval(result);
+      result = math.evaluate(result);
       result = math.format(result, { precision: 14 });
 
       // update the state
@@ -285,7 +285,7 @@ export default class App extends Component {
         </Buttons>
 
         <div class="social">
-          <a href="https://github.com/itsnewt/calculator" className="fa fa-github"></a>
+          <a href="https://github.com/newtykins/calculator" className="fa fa-github"></a>
         </div>
       </div>
     );

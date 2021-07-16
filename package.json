@@ -1,39 +1,35 @@
 {
-  "name": "calculator-react",
-  "version": "1.0.0",
-  "homepage": "https://calculator.newtt.pw/",
-  "private": true,
-  "dependencies": {
-    "immutability-helper": "^3.0.1",
-    "mathjs": "^6.6.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.1",
-    "snyk": "^1.290.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "clean": "rimraf build",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "devDependencies": {
-    "gh-pages": "^2.2.0",
-    "rimraf": "^3.0.1"
-  },
-  "snyk": true
+	"name": "calculator-react",
+	"version": "1.0.0",
+	"homepage": "https://calculator.newtt.pw/",
+	"private": true,
+	"dependencies": {
+		"immutability-helper": "^3.1.1",
+		"mathjs": "^9.4.4",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-scripts": "4.0.3"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"clean": "rimraf build",
+		"predeploy": "yarn build",
+		"deploy": "gh-pages -d build"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"devDependencies": {
+		"gh-pages": "^3.2.3",
+		"rimraf": "^3.0.2"
+	}
 }
